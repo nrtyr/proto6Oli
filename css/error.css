@@ -1,0 +1,52 @@
+@font-face {
+   font-family: "Gotham-Ultra";
+   src: url("fonts/Gotham-Ultra.otf");
+}
+@font-face {
+   font-family: "Gotham-Bold";
+   src: url("fonts/Gotham-Bold.otf");
+}
+@font-face {
+   font-family: "Gotham-Book";
+   src: url("fonts/Gotham-Book.otf");
+}
+a:link   
+{   
+ text-decoration:none; 
+ color:#ffffff;  
+}   
+a:visited {color:#ffffff;}
+a:active {color:#ffffff;}
+a:hover {color:#ffffff;}	
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+html,body{
+	height: 100%;
+	
+}
+body{
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        -webkit-box-pack: center;
+            justify-content: center;
+        -webkit-align-items: center;
+                -ms-flex-align: center;
+            -webkit-box-align: center;
+                align-items: center;
+  min-height: 100vh;
+}
+.cError{
+  background-image: url("../img/404.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 340px;
+  height: 452px;
+}

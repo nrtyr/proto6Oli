@@ -8,13 +8,78 @@ session_start();
 if (isset($_SESSION['pass']) && !empty($_SESSION['pass'])) {
 
 
+    $zNEstC = "";
+    $pSEstC = "";
+    $cCatastralEstC = "";
+    $propietarioEstC = "";
+    $domiciloEstC = "";
+    $idColEstC = "";
+    $coloniaEstC = "";
+    $mtsTerrEstC = "";
+    $mtsConstEstC = "";
+    $usoEstC = "";
+    $valorTerrEstC = "";
+    $valorConsEstC = "";
+    $meritosEstC = "";
+    $demeritosEstC = "";
+    $valorCatEstC = "";
+    $periodoEstC = "";
+    $impM1EstC = "";
+    $descM1EstC = "";
+    $totM1EstC = "";
+    $impM2EstC = "";
+    $recM2EstC = "";
+    $totM2EstC = "";
+    $lineaM1EstC = "";
+    $lineaM2EstC = "";
+    $bimestreEstC = "";
+    $mesUno = "1";
+    $mesDos = "1";
+    $ano = "1";
+    $fechaMesUno = "1";
+    $fechaMesDos = "1";
+
+
+
 $deCriptClvCat = base64_decode($_SESSION['clvCat']);
 
 $db = new SQLite3('../data/tiempo.db');
 
+$contador = $db -> query("SELECT COUNT(cCatastral) AS Cuantos FROM lineasMz WHERE cCatastral = '$deCriptClvCat'; ");
+
+
+$resContador = $contador->fetchArray();
+
+
+
+$cCatastralEstC = $resContador['Cuantos'];
+
+    if ($cCatastralEstC == "0") {
+
+
+
+        echo '
+
+<html>
+    <head>
+        <meta http-equiv="REFRESH" content="0; url=../error/mensaje.aspx">
+    </head>
+    <style>
+            body{
+                display: none;
+            }
+        </style>
+</html>
+
+
+        ';
+    }else{
+
 $consultaPadron = $db -> query("SELECT * FROM lineasMz WHERE cCatastral = '$deCriptClvCat'; ");
 
 while ($resPadron = $consultaPadron->fetchArray()) {
+
+    
 
     $zNEstC = $resPadron['zN'];
     $pSEstC = $resPadron['pS'];
@@ -34,7 +99,6 @@ while ($resPadron = $consultaPadron->fetchArray()) {
     $periodoEstC = $resPadron['periodo'];
     $impM1EstC = $resPadron['impM1'];
     $descM1EstC = $resPadron['descM1'];
-    $cumM1EstC = $resPadron['cumM1'];
     $totM1EstC = $resPadron['totM1'];
     $impM2EstC = $resPadron['impM2'];
     $recM2EstC = $resPadron['recM2'];
@@ -42,9 +106,11 @@ while ($resPadron = $consultaPadron->fetchArray()) {
     $lineaM1EstC = $resPadron['lineaM1'];
     $lineaM2EstC = $resPadron['lineaM2'];
     $bimestreEstC = $resPadron['bimestre'];
+    }
 }
 
 $db->close();
+
 
 switch ($bimestreEstC) {
     case "1":

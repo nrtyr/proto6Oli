@@ -9,6 +9,12 @@
 	<link rel="stylesheet" href="../css/animate.css">
 
 	<script type="text/javascript" src="../js/ajax/usuarios.js"></script>
+	<script type="text/javascript" src="../js/ajax/autoCompletados.js"></script>
+
+
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	
 </head>
 <body class="animated fadeIn">
@@ -17,7 +23,7 @@
 		<br>
 			<h1>CREA TU CUENTA</h1>
 			<br>
-				<form action="insRegistro.php" method="post">
+				<form action="insertar/insertar.aspx" method="post">
 					<p class="infoTxtInput">Nombre:</p>
 					<input type="text" name="txtNombre" placeholder="Nombre" class="formText" required />
 					<br>
@@ -34,9 +40,10 @@
 					<input type="password" name="txtPass" placeholder="Contraseña" class="formText" minlength="6" required />
 					<br>
 					<p class="infoTxtInput">Clave Catastral:</p>
-					<input type="text" name="txtClvCat" placeholder="16 Dígitos" class="formText" maxlength="16" minlength="16" required />
+					<input type="text" name="txtClvCat" placeholder="16 Dígitos" class="formText" maxlength="16" minlength="16" id="autocomplete" value="099" required />
 					
 					<br>
+					
 					<div id="masPrediosDiv"></div>
 					<br>
 					<div class="plus">
@@ -58,5 +65,10 @@
 		
 
 	</div>
+
+<!-- autocomplatado -->	
+<script type="text/javascript" src="../js/auto/autoClave.js"></script>
+<!-- autocomplatado -->	
+
 </body>
 </html>

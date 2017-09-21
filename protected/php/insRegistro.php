@@ -24,12 +24,16 @@ if (isset($_POST['txtNombre']) && !empty($_POST['txtNombre']) &&
 	$aPaternoVar = mb_strtoupper($_POST['txtAPat'], 'UTF-8');
 	$aMaternoVar = mb_strtoupper($_POST['txtAMat'], 'UTF-8');
 	$claveCatVar = mb_strtoupper($_POST['txtClvCat'], 'UTF-8');
+	$claveCatVar2 = mb_strtoupper($_POST['txtClvCat2'], 'UTF-8');
+	$claveCatVar3 = mb_strtoupper($_POST['txtClvCat3'], 'UTF-8');
 
 	############### Termina Convertidor de Variables a Mayusculas ###############
 
 	############### Inicia Encritación de Password y Clave Catastral ###############
 	$pwCode = md5($_POST['txtPass']);
 	$claveCatVar = base64_encode($claveCatVar);
+	$claveCatVar2 = base64_encode($claveCatVar2);
+	$claveCatVar3 = base64_encode($claveCatVar3);
 	############### Inicia Encritación de Password y Clave Catastral ###############
 
 
@@ -59,7 +63,7 @@ if (isset($_POST['txtNombre']) && !empty($_POST['txtNombre']) &&
 
 		############### Inicia Si no existe ###############
 
-	$cs = $con -> query("INSERT INTO login (nombre,aPaterno,aMaterno,correo,password,claveCat) VALUES ('$nombreVar','$aPaternoVar','$aMaternoVar','$_POST[txtCorreo]','$pwCode','$claveCatVar')");
+	$cs = $con -> query("INSERT INTO login (nombre,aPaterno,aMaterno,correo,password,claveCat,claveCat2,claveCat3) VALUES ('$nombreVar','$aPaternoVar','$aMaternoVar','$_POST[txtCorreo]','$pwCode','$claveCatVar','$claveCatVar2','$claveCatVar3')");
 		
 
 	############### Cierra conexion ###############
