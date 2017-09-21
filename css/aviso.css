@@ -1,0 +1,222 @@
+@font-face {
+   font-family: "Gotham-Ultra";
+   src: url("fonts/Gotham-Ultra.otf");
+}
+@font-face {
+   font-family: "Gotham-Bold";
+   src: url("fonts/Gotham-Bold.otf");
+}
+@font-face {
+   font-family: "Gotham-Book";
+   src: url("fonts/Gotham-Book.otf");
+}
+a:link   
+{   
+ text-decoration:none; 
+ color:#ffffff;  
+}   
+a:visited {color:#ffffff;}
+a:active {color:#ffffff;}
+a:hover {color:#ffffff;}	
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+html,body{
+	height: 100%;
+  background-color: #000;
+	
+}
+body{
+	
+	background-image: url("../img/fondo.jpg");
+    background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+		-webkit-justify-content: center;
+		    -ms-flex-pack: center;
+		    -webkit-box-pack: center;
+		        justify-content: center;
+		    -webkit-align-items: center;
+		            -ms-flex-align: center;
+		        -webkit-box-align: center;
+		            align-items: center;
+	min-height: 100vh;
+}
+.cuadroAviso{
+	background-color: rgba(226,5,0,.5);
+	-webkit-border-radius: 8px;
+    	    border-radius: 8px;
+    	padding: 20px;
+    	width: 80%;
+}
+
+.cuadroEnca{
+	height: 100px;
+	position: relative;
+	text-align: center;
+}
+.cuadroE{
+	display: inline-block;
+}
+.imglogo img{
+	height: 100px;
+}
+.iz{
+	float: left;
+}
+.textoCEnca{
+	clear: both;
+	text-align: center;
+	color: #FFF;
+	font-family: "Gotham-Bold";
+	font-size: 1.4em;
+	margin: auto;
+	line-height: 100px;
+}
+.der{
+	float: right;
+}
+@media screen and (max-width: 1080px) {
+	.cuadroEnca{
+	height: 60px;
+	}
+    .textoCEnca{
+    	font-size: 1.2em;
+    	line-height: 60px;
+    }
+    .imglogo img{
+    	height: 60px;
+	}
+}
+@media screen and (max-width: 800px) {
+	.cuadroEnca{
+	height: 300px;
+	}
+    .textoCEnca{
+    	font-size: 1em;
+    	line-height: 30px;
+    	margin: 20px 0px;
+    }
+    .imglogo img{
+    	height: 100%;
+    	max-width: 40%;
+    	min-width: 100%;
+	}
+	.cuadroE{
+		width: 100%;
+	}
+  .txtCheck{
+    font-size: .75em;
+      }
+  .logoNR{
+  	margin-bottom: 20px;
+  }    
+}
+
+.cuadroTextoAviso{
+	width: 95%;
+	height: 300px;
+	background-color: #FFF;
+	margin: auto;
+	-webkit-border-radius: 8px;
+	        border-radius: 8px;
+	overflow-y: scroll;
+}
+.cuadroTextoAviso p{
+	font-family: "Gotham-Book";
+	padding: 3% 5%;
+	text-align: justify;
+	color: #5A5A5A;
+}
+
+.divCheckbox{
+  padding-left: 20px;
+  height: 30px;
+  margin: auto;
+  text-align: center;
+}
+
+
+.btnCheckBoxNo{
+  width: 30px;
+  height: 30px;
+  border: 1px solid #3E3E3E;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  background: rgba(0,0,0,0.8);
+  cursor: pointer;
+  color: #FFF;
+  font-size: 1em;
+}
+.btnCheckBoxNo:hover{
+  background: rgba(0,0,0,0.4);
+}
+.cCheckBox{
+  float: left;
+}
+
+.txtCheck{
+  margin-left: 20px;
+  float: left;
+  color: #FFF;
+  font-family: "Gotham-Bold";
+  height: 30px;
+  line-height: 30px;
+}
+.estiloB{
+	width: 47%;
+    	height: 50px;
+    	font-family: "Gotham-Bold";
+      	color: #FFF;
+      	font-size: 1em;
+      	line-height: 50px;
+      	border: 0px solid;
+      	-webkit-border-radius: 3px;
+      	        border-radius: 3px;
+      	cursor: pointer;
+      	background-color: rgba(0,0,0,.3);
+		float: right;
+		cursor: pointer;
+		
+}
+.estiloC{
+	width: 47%;
+    	height: 50px;
+    	font-family: "Gotham-Bold";
+      	color: #FFF;
+      	font-size: 1em;
+      	line-height: 50px;
+      	border: 0px solid;
+      	-webkit-border-radius: 3px;
+      	        border-radius: 3px;
+      	cursor: pointer;
+      	background-color: rgba(0,0,0,.7);
+		float: left;	
+		cursor: pointer;
+}
+.estiloA:hover, .estiloC:hover{
+background-color: #000; 
+
+}
+.estiloA{
+	width: 47%;
+    	height: 50px;
+    	font-family: "Gotham-Bold";
+      	color: #FFF;
+      	font-size: 1em;
+      	line-height: 50px;
+      	border: 0px solid;
+      	-webkit-border-radius: 3px;
+      	        border-radius: 3px;
+      	cursor: pointer;
+      	background-color: rgba(0,0,0,.7);
+		float: right;	
+		cursor: pointer;
+}
