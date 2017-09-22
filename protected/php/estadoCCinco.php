@@ -136,7 +136,7 @@
 					<div class="cTfPago">
 						<div class="cfPago">
 							<div class="numero">1</div>
-							<p class="txtCuadro">Pago en ventanilla Telecom Telégrafos:
+							<p class="txtCuadro">Pago en ventanilla Telecomm Telégrafos:
 							<br>
 							<b>Convenio CIE: 1413325 y Referencia.</b>
 
@@ -146,14 +146,14 @@
 							<!-- <div class="numero">3</div>
 							<p class="txtCuadroG">Transferencia Interbancaria.
 							<br>
-							<img src="css/img/logoTelecom.svg" class="logoSPEI">
+							<img src="css/img/logoTelecomm.svg" class="logoSPEI">
 							<b>CIE INTERBANCARIO
 							<br>
 							012914002014133252
 							</b>
 
 							</p> -->
-							<img src="css/img/logoTelecom150.svg" class="logoTelecom">
+							<img src="css/img/logoTelecomm150.svg" class="logoTelecomm">
 						 </div>
 					</div>
 
@@ -513,7 +513,7 @@ inicia hoja 3
 					<div class="cTfPago">
 						<div class="cfPago">
 							<div class="numero">1</div>
-							<p class="txtCuadro">Pago en ventanilla Telecom Telégrafos:
+							<p class="txtCuadro">Pago en ventanilla Telecomm Telégrafos:
 							<br>
 							<b>Convenio CIE: 1413325 y Referencia.</b>
 
@@ -523,14 +523,14 @@ inicia hoja 3
 							<!-- <div class="numero">3</div>
 							<p class="txtCuadroG">Transferencia Interbancaria.
 							<br>
-							<img src="css/img/logoTelecom.svg" class="logoSPEI">
+							<img src="css/img/logoTelecomm.svg" class="logoSPEI">
 							<b>CIE INTERBANCARIO
 							<br>
 							012914002014133252
 							</b>
 
 							</p> -->
-							<img src="css/img/logoTelecom150.svg" class="logoTelecom">
+							<img src="css/img/logoTelecomm150.svg" class="logoTelecomm">
 						 </div>
 					</div>
 
@@ -761,7 +761,15 @@ inicia hoja 3
 </div>
 
 <?php 
-echo "<script> setTimeout (".'"'."alert('No hay registro de la clave:   $deCriptClvCat');".'"'.", 800) </script>";
+
+
+if (strlen($deCriptClvCat) > 0) {
+	echo "<script> 
+
+		setTimeout (".'"'."alert('No hay registro de la clave:   $deCriptClvCat');".'"'.", 800);
+	</script>";
+}
+
  ?>
 </body>
 </html>

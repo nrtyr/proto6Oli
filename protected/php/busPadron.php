@@ -47,34 +47,17 @@ $deCriptClvCat3 = base64_decode($_SESSION['clvCat3']);
 
 $db = new SQLite3('../data/tiempo.db');
 
-$contador = $db -> query("SELECT COUNT(cCatastral) AS Cuantos1 FROM lineasMz WHERE cCatastral = '$deCriptClvCat'; ");
-$resContador = $contador->fetchArray();
-$cCatastralEstC = $resContador['Cuantos1'];
-
-    // if ($cCatastralEstC == "0") {
-
-
-
-//         echo '
-
-// <html>
-//     <head>
-//         <meta http-equiv="REFRESH" content="0; url=../error/mensaje.aspx">
-//     </head>
-//     <style>
-//             body{
-//                 display: none;
-//             }
-//         </style>
-// </html>
-
-
-//         ';
-//     }else{
 
 // ############################################
 // Comprobación, si la tiene más de una clave
 // ############################################
+
+
+$contador = $db -> query("SELECT COUNT(cCatastral) AS Cuantos1 FROM lineasMz WHERE cCatastral = '$deCriptClvCat'; ");
+$resContador = $contador->fetchArray();
+$cCatastralEstC = $resContador['Cuantos1'];
+
+
 
 $contador2 = $db -> query("SELECT COUNT(cCatastral) AS Cuantos2 FROM lineasMz WHERE cCatastral = '$deCriptClvCat2'; ");
 $resContador2 = $contador2->fetchArray();
