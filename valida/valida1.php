@@ -20,12 +20,16 @@ if (isset($_POST['txtCorreo']) && !empty($_POST['txtCorreo'])) {
 		$correo = $resul['correo'];
 		$pwUsuario = $resul['password'];
 		$clvCat = $resul['claveCat'];
+		$clvCat2 = $resul['claveCat2'];
+		$clvCat3 = $resul['claveCat3'];
 	}
 	
 	if ($_POST['txtCorreo'] == $correo) {
 
 		$_SESSION['pass'] = $pwUsuario;
 		$_SESSION['clvCat'] = $clvCat;
+		$_SESSION['clvCat2'] = $clvCat2;
+		$_SESSION['clvCat3'] = $clvCat3;
 
 			echo '
 				<input type="password" id="txtPassword" class="inp inpPassword animated fadeInDown" onkeypress="btnFormAjax2(event)" placeholder="Password..." autofocus="autofocus"/>

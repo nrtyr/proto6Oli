@@ -42,72 +42,108 @@ if (isset($_SESSION['pass']) && !empty($_SESSION['pass'])) {
 
 
 $deCriptClvCat = base64_decode($_SESSION['clvCat']);
+$deCriptClvCat2 = base64_decode($_SESSION['clvCat2']);
+$deCriptClvCat3 = base64_decode($_SESSION['clvCat3']);
 
 $db = new SQLite3('../data/tiempo.db');
 
-$contador = $db -> query("SELECT COUNT(cCatastral) AS Cuantos FROM lineasMz WHERE cCatastral = '$deCriptClvCat'; ");
-
-
+$contador = $db -> query("SELECT COUNT(cCatastral) AS Cuantos1 FROM lineasMz WHERE cCatastral = '$deCriptClvCat'; ");
 $resContador = $contador->fetchArray();
+$cCatastralEstC = $resContador['Cuantos1'];
+
+    // if ($cCatastralEstC == "0") {
 
 
 
-$cCatastralEstC = $resContador['Cuantos'];
+//         echo '
 
-    if ($cCatastralEstC == "0") {
+// <html>
+//     <head>
+//         <meta http-equiv="REFRESH" content="0; url=../error/mensaje.aspx">
+//     </head>
+//     <style>
+//             body{
+//                 display: none;
+//             }
+//         </style>
+// </html>
 
 
+//         ';
+//     }else{
 
+// ############################################
+// Comprobación, si la tiene más de una clave
+// ############################################
+
+$contador2 = $db -> query("SELECT COUNT(cCatastral) AS Cuantos2 FROM lineasMz WHERE cCatastral = '$deCriptClvCat2'; ");
+$resContador2 = $contador2->fetchArray();
+$cCatastralEstC2 = $resContador2['Cuantos2'];
+
+
+$contador3 = $db -> query("SELECT COUNT(cCatastral) AS Cuantos3 FROM lineasMz WHERE cCatastral = '$deCriptClvCat3'; ");
+$resContador3 = $contador3->fetchArray();
+$cCatastralEstC3 = $resContador3['Cuantos3'];
+
+$posible = $cCatastralEstC.$cCatastralEstC2.$cCatastralEstC3;
+
+$imprimeX = "";
+
+switch ($posible) {
+    case "111":
+        include("calculoX1.php");
+        $imprimeX = "estadoCUno.php";
+        break;
+    case "110":
+        include("calculoX2.php");
+        $imprimeX = "estadoCDos.php";
+        break;
+    case "101":
+        include("calculoX3.php");
+        $imprimeX = "estadoCTres.php";
+        break;
+    case "100":
+        include("calculoX4.php");
+        $imprimeX = "estadoCCuatro.php";
+        break;
+    case "011":
+        include("calculoX5.php");
+        $imprimeX = "estadoCCinco.php";
+        break;
+    case "010":
+        include("calculoX6.php");
+        $imprimeX = "estadoCSeis.php";
+        break;
+    case "001":
+        include("calculoX7.php");
+        $imprimeX = "estadoCSiete.php";
+        break;
+    case "000":
         echo '
 
-<html>
-    <head>
-        <meta http-equiv="REFRESH" content="0; url=../error/mensaje.aspx">
-    </head>
-    <style>
-            body{
-                display: none;
-            }
-        </style>
-</html>
+            <html>
+                <head>
+                    <meta http-equiv="REFRESH" content="0; url=../error/mensaje.aspx">
+                </head>
+                <style>
+                        body{
+                            display: none;
+                        }
+                    </style>
+            </html>
 
 
         ';
-    }else{
-
-$consultaPadron = $db -> query("SELECT * FROM lineasMz WHERE cCatastral = '$deCriptClvCat'; ");
-
-while ($resPadron = $consultaPadron->fetchArray()) {
-
-    
-
-    $zNEstC = $resPadron['zN'];
-    $pSEstC = $resPadron['pS'];
-    $cCatastralEstC = $resPadron['cCatastral'];
-    $propietarioEstC = $resPadron['propietario'];
-    $domiciloEstC = $resPadron['domicilo'];
-    $idColEstC = $resPadron['idCol'];
-    $coloniaEstC = $resPadron['colonia'];
-    $mtsTerrEstC = $resPadron['mtsTerr'];
-    $mtsConstEstC = $resPadron['mtsConst'];
-    $usoEstC = $resPadron['uso'];
-    $valorTerrEstC = $resPadron['valorTerr'];
-    $valorConsEstC = $resPadron['valorCons'];
-    $meritosEstC = $resPadron['meritos'];
-    $demeritosEstC = $resPadron['demeritos'];
-    $valorCatEstC = $resPadron['valorCat'];
-    $periodoEstC = $resPadron['periodo'];
-    $impM1EstC = $resPadron['impM1'];
-    $descM1EstC = $resPadron['descM1'];
-    $totM1EstC = $resPadron['totM1'];
-    $impM2EstC = $resPadron['impM2'];
-    $recM2EstC = $resPadron['recM2'];
-    $totM2EstC = $resPadron['totM2'];
-    $lineaM1EstC = $resPadron['lineaM1'];
-    $lineaM2EstC = $resPadron['lineaM2'];
-    $bimestreEstC = $resPadron['bimestre'];
-    }
+        $imprimeX = "";
+        break;
 }
+
+// }
+
+// ############################################
+// Comprobación, si la tiene más de una clave
+// ############################################
+
 
 $db->close();
 
@@ -167,6 +203,8 @@ $fechaVenUno = $uDiaMesUno."/".$fechaMesUno."/".$ano;
 $fechaVenDos = $uDiaMesDos."/".$fechaMesDos."/".$ano;
 
 
+
+
 }else{
 
     echo "<script> alert('No puedes ver esta pagina!');</script>";
@@ -174,7 +212,7 @@ $fechaVenDos = $uDiaMesDos."/".$fechaMesDos."/".$ano;
     
 }
 
-
-
+include($imprimeX);
 
 ?>
+

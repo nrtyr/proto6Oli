@@ -19,11 +19,15 @@ if (isset($_POST['txtCorreo']) && !empty($_POST['txtCorreo'])) {
 		$correo = $resul['correo'];
 		$pwUsuario = $resul['password'];
 		$clvCat = $resul['claveCat'];
+		$clvCat2 = $resul['claveCat2'];
+		$clvCat3 = $resul['claveCat3'];
 	}
 
 	if ($correo == $_POST['txtCorreo']) {
 		$_SESSION['pass'] = $pwUsuario;
 		$_SESSION['clvCat'] = $clvCat;
+		$_SESSION['clvCat2'] = $clvCat2;
+		$_SESSION['clvCat3'] = $clvCat3;
 		echo ' 
 <!DOCTYPE html>
 <html lang="es">
